@@ -1,10 +1,10 @@
 .container{
-    position:fixed;
     display:flex;
     background-color: var(--nav-bg-color);
     height: 3rem;
     width: 100%;
     align-items: center;
+    margin-top: 0px;
 }
 .loginButon{
     font-weight: 500;

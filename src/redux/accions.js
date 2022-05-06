@@ -1,17 +1,22 @@
-import { authCall } from "../utils";
+import { authCall} from "../utils";
+import {  getAlbumsRequest} from "../utils/getAlbumsRequest";
 export const IS_AUTHENTICATE = "IS_AUTHENTICATE";
 export const LOG_OUT = "LOG_OUT";
 export const LOG_IN = "LOG_IN";
+export const GET_ALBUMS = "GET_ALBUMS";
+
 
 export function authenticateUser(code) {
   return async (dispatch) => {
     try {
       const result = await authCall(code);
-      console.log("result", result.access_token);
-      if (result.access_token?.length > 1) {
+      console.log("result", result);
+      if (result.data.access_token.length > 1) {
         console.log("entre");
-        localStorage.setItem("token", JSON.stringify(result));
-        dispatch(logIn(result));
+        localStorage.setItem("token", JSON.stringify(result.data.access_token));
+        console.log("Lo que se guarda en el storage", localStorage.getItem("token"))
+
+        dispatch(logIn(result.data));
       }
     } catch (e) {
       console.log(e);
@@ -33,6 +38,17 @@ export function logOut() {
     dispatch({
       type: LOG_OUT,
       payload: null,
+    });
+  };
+}
+export function getAlbums(search) {
+  return async (dispatch) => {
+    
+    const albums= await getAlbumsRequest(search)
+    console.log("ACA ESTAN LOS ALBUMS", albums)
+    dispatch({
+      type: GET_ALBUMS,
+      payload: albums?.data.albums.items,
     });
   };
 }

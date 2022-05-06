@@ -8,10 +8,10 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token);
+    console.log("ACA ESTA EL TOKEN", token);
     token && dispatch(logIn(token));
   }, [dispatch]);
-  return (
+  return (  
     <div className="App">
       <AppRoutes />
     </div>
