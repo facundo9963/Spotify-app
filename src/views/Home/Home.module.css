@@ -1,15 +1,22 @@
 .container{
     display:flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     justify-content: space-around;
     align-items: center;
 }
 .subContainer{
     display: flex;
     width: 40%;
+    min-width: 300px;
     height: 500px;
     align-items: center;
 
+}
+@media (max-width:600px) {
+    .subContainer {
+        align-items: flex-start;
+    }
+    
 }
 .subContainer img{
     width: 100%;

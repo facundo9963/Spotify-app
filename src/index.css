@@ -14,4 +14,7 @@ code {
 :root {
   --nav-bg-color: #2C2C2C;
   --log-btn-color: #2C2C2C;
+  --box-album-color1:#e92058;
+  --box-album-color2:#205c68 ;
+  --box-album-color3:#875fa8 ;
 }

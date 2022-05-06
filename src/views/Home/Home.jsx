@@ -1,7 +1,6 @@
 import React from "react";
-import image from "../../utils/images/HomeImage.png"
+import image from "../../assets/images/HomeImage.png"
 import styles from "./Home.module.css"
-
 function Home() {
   return (
     <div className={styles.container}>
