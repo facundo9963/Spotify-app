@@ -1,4 +1,4 @@
-import apiCall from "../api";
+import axios from "axios"
 
 const commonParams = {
   redirect_uri: process.env.REACT_APP_CALLBACK_HOST,
@@ -19,17 +19,12 @@ export const authCall = async (code) => {
         (key) => encodeURIComponent(key) + "=" + encodeURIComponent(params[key])
       )
       .join("&");
+    const call = await axios.post("https://accounts.spotify.com/api/token", searchParams, {headers:{
+      "Content-type": "application/x-www-form-urlencoded"
+    }})
 
-    const call = await apiCall({
-      method: "POST",
-      url: "https://accounts.spotify.com/api/token",
-      body: searchParams,
-      headers: {
-        "Content-type": "application/x-www-form-urlencoded",
-      },
-    });
-    console.log(call)
-    return await call.json();
+    console.log("CALLLL", call)
+    return call;
   } catch (error) {
     console.log(error);
   }

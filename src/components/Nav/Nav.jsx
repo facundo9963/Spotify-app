@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./Nav.module.css";
 import { authenticateUser } from "../../redux/accions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function Nav() {
   const location = useLocation();
@@ -27,7 +27,7 @@ function Nav() {
     window.location.replace(url);
   };
 
-  const logged = localStorage.getItem("isAuthenticated");
+  const logged = useSelector(state=>state.isAuthenticate)
   return logged ? (
     <div className={styles.container}>
       <button>Favorites</button>
