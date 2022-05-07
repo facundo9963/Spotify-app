@@ -1,0 +1,33 @@
+.container{
+    margin: 0 auto;
+    box-shadow: inset;
+    width: 70%;
+    margin-top: 4rem;
+    border-radius: 1rem;
+    border: 2px solid var(--nav-bg-color);
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.title{
+    width: 90%;
+}
+.slider{
+    width: 220px;     
+}
+
+
+.item{
+    width: 20%;
+    height: 400px;
+}
+
+.image{
+    margin: auto auto;
+    width: 90%;
+    height: 70%;
+
+}
