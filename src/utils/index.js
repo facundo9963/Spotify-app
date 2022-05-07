@@ -23,7 +23,6 @@ export const authCall = async (code) => {
       "Content-type": "application/x-www-form-urlencoded"
     }})
 
-    console.log("CALLLL", call)
     return call;
   } catch (error) {
     console.log(error);
