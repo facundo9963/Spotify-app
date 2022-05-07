@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 3%;
+    width: 90%;
+    margin: auto;
+    margin-top: 5rem;
+  }
+  
+  .info-container p {
+    text-align: left;
+    max-width: 400px;
+    margin: 1rem auto;
+  }
+  
+  .info-container button {
+    background-color: var(--box-album-color2);
+    border-radius: 0.7rem;
+    border: none;
+    padding: 0.5rem;
+    margin: 1rem;
+    color:white;
+    cursor: pointer;
+    border: 2px solid white;
+  }
+  .info-container button:hover{
+      background-color: white;
+      color: var(--box-album-color2);
+      border: 2px solid var(--box-album-color2);
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .image {
+    width: 55%;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      margin: 1rem auto;
+    }
+  
+    .image {
+      width: 90%;
+    }
+  }
