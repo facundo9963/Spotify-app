@@ -20,7 +20,7 @@
     border: 1px solid white;
     margin-left: auto;
 }
-.otherButtons:hover{
+.loginButton:hover{
     transition: all 0.5s;
     background-color:var(--log-btn-color);
     color: white;
