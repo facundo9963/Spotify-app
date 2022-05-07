@@ -7,7 +7,7 @@
     height: 250px;
     background-color: var(--box-album-color1);
     border-radius: 1rem;
-    gap: 0.5rem;
+    margin: 0.5rem 0.5rem;
 }
 .container2{
     display: flex;
@@ -18,7 +18,7 @@
     height: 250px;
     background-color: var(--box-album-color2);
     border-radius: 1rem;
-    gap: 0.5rem;
+    margin: 0.5rem 0.5rem;
 }
 .container3{
     display: flex;
@@ -29,7 +29,7 @@
     height: 250px;
     background-color: var(--box-album-color3);
     border-radius: 1rem;
-    gap: 0.5rem;
+    margin: 0.5rem 0.5rem;
 }
 .container1 h1{
     width:100%;
