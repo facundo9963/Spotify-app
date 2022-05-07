@@ -7,15 +7,17 @@ import { useDispatch, useSelector } from "react-redux";
 function Nav() {
   const location = useLocation();
   const dispatch = useDispatch();
-
+  let navigate = useNavigate();
+  
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const spotifyCode = urlParams.get("code");
 
     if (spotifyCode !== null && !localStorage.getItem("token")) {
-      dispatch(authenticateUser(spotifyCode));
+      dispatch(authenticateUser(spotifyCode))
+      navigate("/albums");
     }
-  }, [location.search, dispatch]);
+  }, [location.search, dispatch, navigate]);
 
   const url = `https://accounts.spotify.com/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=code&redirect_uri=${process.env.REACT_APP_CALLBACK_HOST}&scope=user-read-private user-read-email user-library-read`;
 
@@ -28,7 +30,6 @@ function Nav() {
   };
 
   const logged = useSelector((state) => state.isAuthenticate);
-  let navigate = useNavigate();
   return logged ? (
     <div className={styles.container}>
       <button
