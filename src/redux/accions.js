@@ -1,9 +1,12 @@
 import { authCall} from "../utils";
 import {  getAlbumsRequest} from "../utils/getAlbumsRequest";
+import { getFavoritesAlbums } from "../utils/getFavoritesAlbums";
 export const IS_AUTHENTICATE = "IS_AUTHENTICATE";
 export const LOG_OUT = "LOG_OUT";
 export const LOG_IN = "LOG_IN";
 export const GET_ALBUMS = "GET_ALBUMS";
+export const GET_FAVORITES = "GET_FAVORITES";
+
 
 
 export function authenticateUser(code) {
@@ -13,7 +16,7 @@ export function authenticateUser(code) {
       console.log("result", result);
       if (result.data.access_token.length > 1) {
         console.log("entre");
-        localStorage.setItem("token", JSON.stringify(result.data.access_token));
+        localStorage.setItem("token", JSON.stringify(result.data));
         console.log("Lo que se guarda en el storage", localStorage.getItem("token"))
 
         dispatch(logIn(result.data));
@@ -49,6 +52,17 @@ export function getAlbums(search) {
     dispatch({
       type: GET_ALBUMS,
       payload: albums?.data.albums.items,
+    });
+  };
+}
+export function getFavorites() {
+  return async (dispatch) => {
+    
+    const {data}= await getFavoritesAlbums()
+    console.log("ACA ESTAN LOS ALBUMS", data)
+    dispatch({
+      type: GET_FAVORITES,
+      payload: data.items,
     });
   };
 }
