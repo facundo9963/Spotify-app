@@ -3,6 +3,7 @@
     flex-wrap: wrap-reverse;
     justify-content: space-around;
     align-items: center;
+    margin-top: 3rem;
 }
 .subContainer{
     display: flex;
