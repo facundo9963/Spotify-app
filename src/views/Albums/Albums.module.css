@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: antiquewhite;
+    background-color: var(--container-Albums-color) ;
     width: 80%;
     margin: 0 auto;
     padding-top:2rem;

@@ -1,10 +1,11 @@
-import {  LOG_OUT, LOG_IN, GET_ALBUMS} from "./accions";
+import {  LOG_OUT, LOG_IN, GET_ALBUMS, GET_FAVORITES} from "./accions";
 
 
 const initialState = {
     token:null,
     isAuthenticate:false,
-    albums:[]
+    albums:[],
+    favorites:[],
   };
   
   // REDUCER
@@ -17,6 +18,8 @@ const initialState = {
             return {...initialState}
         case GET_ALBUMS:
           return{...state, albums: payload}
+        case GET_FAVORITES:
+          return{...state, favorites:payload}
       default:
         return { ...state };
     }
