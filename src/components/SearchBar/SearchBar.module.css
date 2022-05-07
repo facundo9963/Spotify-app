@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    width:40%;
+    min-width: 200px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1rem;
+    gap:1rem;
+
+
+
+}
+.input{
+ width:90%;
+ border: 1px solid black;
+ border-radius:0.7rem;
+
+}
+.button{
+    width:30px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.3rem;
+    font-size: large;
+    font-weight: bolder;
+}
+.button:hover{
+    transition: all 0.5s;
+    border: 1px solid var(--log-btn-color);
+    background-color: var(--log-btn-color);
+    color: white;
+}

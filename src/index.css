@@ -14,7 +14,14 @@ code {
 :root {
   --nav-bg-color: #2C2C2C;
   --log-btn-color: #2C2C2C;
+<<<<<<< Updated upstream
   --box-album-color1:#e92058;
   --box-album-color2:#205c68 ;
   --box-album-color3:#875fa8 ;
+=======
+  --box-album-color1:#875fa8 ;
+  --box-album-color2:#e92058;
+  --box-album-color3:#205c68 ;
+  --container-Albums-color:#faeee7;
+>>>>>>> Stashed changes
 }
