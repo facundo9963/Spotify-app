@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 import styles from "./Nav.module.css";
 import { authenticateUser, logOut } from "../../redux/accions";
 import { useDispatch, useSelector } from "react-redux";
