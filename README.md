@@ -2,6 +2,7 @@
 
 This is an app to search spotify albums.  <br/>
 This page consumes the Spotify API to display album information.
+Requests are made to the Spotify API such as adding or removing a saved album, searching for albums. It interacts directly with your account as soon as you authorize it with your spotify username and password. <br/>
 It is made with React, Redux and some style libraries.
 
 
