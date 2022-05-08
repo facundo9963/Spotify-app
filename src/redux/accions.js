@@ -1,4 +1,6 @@
 import { authCall } from "../utils";
+import { addFavoritesAlbums } from "../utils/addFavoritesAlbums";
+import { deleteFavoritesAlbums } from "../utils/deleteFavoritesAlbums";
 import { getAlbumsRequest } from "../utils/getAlbumsRequest";
 import { getFavoritesAlbums } from "../utils/getFavoritesAlbums";
 export const IS_AUTHENTICATE = "IS_AUTHENTICATE";
@@ -58,5 +60,27 @@ export function getFavorites() {
       type: GET_FAVORITES,
       payload: data.items,
     });
+  };
+}
+export function addFavorites(id) {
+  return async (dispatch) => {
+    try{
+      await addFavoritesAlbums(id);
+      dispatch(getFavorites())
+
+    }catch(e){
+      console.log(e)
+    }
+  };
+}
+export function deleteFavorites(id) {
+  return async (dispatch) => {
+    try{
+      await deleteFavoritesAlbums(id);
+      dispatch(getFavorites())
+
+    }catch(e){
+      console.log(e)
+    }
   };
 }

@@ -22,10 +22,11 @@ function Favorites() {
     const name= favorite.album.name? favorite.album.name: false;
     const releaseDate=favorite.album.release_date? favorite.album.release_date: false
     const albumType=favorite.album.type? favorite.album.type: false
-    return {images, name, releaseDate,albumType}
+    const id=favorite.album.id? favorite.album.id: false
+    return {images, name, releaseDate,albumType, id}
   });
 ////
-
+  const favoritesIDS=useSelector(state=>state.favoritesIds) 
 
   var settings = {
     dots: false,
@@ -46,6 +47,8 @@ function Favorites() {
             return (
               
               <Album
+              liked={favoritesIDS.includes(album.id)}
+              id={album.id}
               key={i}
               image={album.images[0]}
               name={album.name}

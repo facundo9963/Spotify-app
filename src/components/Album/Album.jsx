@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Album.module.css";
 import { useSpring, animated } from 'react-spring'
-function Album({ image, name, releaseDate, albumType }) {
+import Favorite from "../Favorite/Favorite";
+function Album({ image, name, releaseDate, albumType, id, liked }) {
+
+  
 
   ///ELEGIR EL CONTENEDOR SEGUN EL TIPO DE ALBUM PARA ESTILOS
   const albumColor = () => {
@@ -48,7 +51,10 @@ function Album({ image, name, releaseDate, albumType }) {
       <div className={styles.containerImage}>
         <img className={styles.image} src={image.url} alt="portada" />
       </div>
+      <div className={styles.heartContainer}>
       <span>{releaseDate}</span>
+      <Favorite id={id} liked={liked}/>
+      </div>
     </animated.div>
   );
 }
