@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import "./App.css";
+import { ToastContainer} from 'react-toastify';
 import AppRoutes from "./routes/AppRoutes";
 import {  logIn } from "./redux/accions";
+import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ function App() {
   }, [dispatch]);
   return (  
     <div className="App">
+      <ToastContainer limit={3}/>
       <AppRoutes />
     </div>
   );

@@ -1,5 +1,6 @@
 import { authCall } from "../utils";
 import { addFavoritesAlbums } from "../utils/addFavoritesAlbums";
+import { errorAlert, successAlert, successAlertDark} from "../utils/alerts";
 import { deleteFavoritesAlbums } from "../utils/deleteFavoritesAlbums";
 import { getAlbumsRequest } from "../utils/getAlbumsRequest";
 import { getFavoritesAlbums } from "../utils/getFavoritesAlbums";
@@ -27,6 +28,7 @@ export function authenticateUser(code) {
 
 export function logIn(data) {
   return (dispatch) => {
+    successAlert("You logged in successfully")
     dispatch({
       type: LOG_IN,
       payload: data,
@@ -44,22 +46,33 @@ export function logOut() {
 }
 export function getAlbums(search) {
   return async (dispatch) => {
-    const albums = await getAlbumsRequest(search);
+   try{
+     const albums = await getAlbumsRequest(search);
+     dispatch({
+       type: GET_ALBUMS,
+       payload: albums?.data.albums.items,
+     });
+     search!=="Imagine" && successAlert(`${albums?.data.albums.items.length} results were found`)
+  } catch(e){
+    errorAlert("Not found")
+  }
+     
 
-    dispatch({
-      type: GET_ALBUMS,
-      payload: albums?.data.albums.items,
-    });
   };
 }
 export function getFavorites() {
   return async (dispatch) => {
-    const { data } = await getFavoritesAlbums();
+    try{
 
-    dispatch({
-      type: GET_FAVORITES,
-      payload: data.items,
-    });
+      const { data } = await getFavoritesAlbums();
+  
+      dispatch({
+        type: GET_FAVORITES,
+        payload: data.items,
+      });
+    }catch(e){
+      errorAlert("Favorites not found")
+    }
   };
 }
 export function addFavorites(id) {
@@ -67,9 +80,9 @@ export function addFavorites(id) {
     try{
       await addFavoritesAlbums(id);
       dispatch(getFavorites())
-
+      successAlert("Favorite added")
     }catch(e){
-      console.log(e)
+      errorAlert("Could not add a favorite")
     }
   };
 }
@@ -78,9 +91,10 @@ export function deleteFavorites(id) {
     try{
       await deleteFavoritesAlbums(id);
       dispatch(getFavorites())
+      successAlertDark("Favorite deleted")
 
     }catch(e){
-      console.log(e)
+      errorAlert("Could not delete a favorite")
     }
   };
 }
