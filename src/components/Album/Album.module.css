@@ -57,7 +57,7 @@
 }
 .container2 span{
     width:60%;
-    font-size: small;
+    font-size: medium;
     font-family: 'Montserrat';
     color:white;
 }
@@ -72,6 +72,13 @@
 .containerImage{
     width:150px;
     height:150px;
+    
+}
+.heartContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:2rem;
     
 }
 .image{

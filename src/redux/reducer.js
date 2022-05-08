@@ -6,6 +6,7 @@ const initialState = {
     isAuthenticate:false,
     albums:[],
     favorites:[],
+    favoritesIds:[]
   };
   
   // REDUCER
@@ -19,7 +20,7 @@ const initialState = {
         case GET_ALBUMS:
           return{...state, albums: payload}
         case GET_FAVORITES:
-          return{...state, favorites:payload}
+          return{...state, favorites:payload, favoritesIds: payload.map((fav)=> fav.album?.id)}
       default:
         return { ...state };
     }
