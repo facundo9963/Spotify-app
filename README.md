@@ -2,14 +2,16 @@
 
 This is an app to search spotify albums.  <br/>
 This page consumes the Spotify API to display album information.
-It is made with React, Redux and some style libraries
+It is made with React, Redux and some style libraries.
 
 
 
 ## `Views`
 
-There is a landing Page where you can log in, there is a section where you can search for albums uploaded to spotify. <br/>
-There is also a view that allows you to view the favorite albums of your spotify account
+There is a landing Page where you can log in, there is a section where you can search for albums uploaded to spotify.
+ <br/>
+There is also a view that allows you to view the favorite albums of your spotify account.<br/>
+You can modify your favorites which will also change in your spotify account.
 
 ### `Figma`
 
